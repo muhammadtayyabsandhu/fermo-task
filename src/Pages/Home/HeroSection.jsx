@@ -76,7 +76,7 @@ const HeroSection = () => {
       
         <div className="flex justify-center md:justify-end relative">
           <img
-            src="src/assets/hero image.png"
+            src="https://res.cloudinary.com/dyfgyhy2v/image/upload/v1755338581/hero_image_m7a3th.png"
             alt="Marketing"
             className="w-full max-w-[550px] md:max-w-[600px] object-contain"
           />
