@@ -6,6 +6,7 @@ import TrustedBy from './TrustedBy'
 import FloatingStats from './FloatingStats'
 import VideoSection from './VideoSection'
 import WhyChooseUs from './WhyChooseUs'
+import Banner from './Banner'
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
     <VideoSection/>
     <MarketingSection/>
     <TestimonialSlider/>
+    <Banner/>
     </>
   )
 }

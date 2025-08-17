@@ -1,7 +1,40 @@
 import React from "react";
 import { FiPhone } from "react-icons/fi";
-
+import { useEffect, useState } from "react";
 const HeroSection = () => {
+  const words = ["POWERFUL", "DYNAMIC", "SMART"]; // words loop karne ke liye
+  const [text, setText] = useState("");
+  const [index, setIndex] = useState(0); // current word index
+  const [subIndex, setSubIndex] = useState(0); // current character index
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentWord = words[index];
+
+    // typing / deleting speed
+    const speed = deleting ? 100 : 150;
+
+    const timeout = setTimeout(() => {
+      if (!deleting && subIndex < currentWord.length) {
+        setSubIndex(subIndex + 1);
+      } else if (deleting && subIndex > 0) {
+        setSubIndex(subIndex - 1);
+      } else if (!deleting && subIndex === currentWord.length) {
+        // pause after full word typed
+        setTimeout(() => setDeleting(true), 1000);
+      } else if (deleting && subIndex === 0) {
+        setDeleting(false);
+        setIndex((prev) => (prev + 1) % words.length);
+      }
+    }, speed);
+
+    return () => clearTimeout(timeout);
+  }, [subIndex, deleting, index, words]);
+
+  useEffect(() => {
+    setText(words[index].substring(0, subIndex));
+  }, [subIndex, index, words]);
+
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center bg-gradient-to-r from-[#083c8c] via-[#0b4fb6] to-[#0c5fcb] text-white font-sans overflow-hidden">
       {/* Background Image with Overlay */}
@@ -19,7 +52,7 @@ const HeroSection = () => {
         {/* Left Content (chhota column) */}
         <div className="md:col-span-2 space-y-5 text-center md:text-left px-4 sm:px-6">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug">
-            <span className="text-yellow-400">POWERFUL</span> MARKETING <br />
+             <span className="text-yellow-400">{text}</span> MARKETING <br />
             SOLUTIONS EVERY <span className="text-yellow-300">B2B</span>{" "}
             BUSINESS NEEDS
           </h1>
