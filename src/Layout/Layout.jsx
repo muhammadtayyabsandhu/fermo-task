@@ -9,7 +9,7 @@ const Layout = () => {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen p-4">
+      <main className="min-h-screen ">
         <Outlet /> {/* Yahan child route ka content load hoga */}
       </main>
       <Footer />

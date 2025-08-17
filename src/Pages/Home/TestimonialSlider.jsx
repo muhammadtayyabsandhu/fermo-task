@@ -57,57 +57,69 @@ export default function TestimonialSlider() {
   }, []);
 
   return (
-    <section className="bg-gray-50 py-16 px-4">
-      <div className="max-w-7xl mx-auto flex items-start justify-between">
+    <section className="bg-gray-50 py-8 px-4">
+      <div className="max-w-7xl mx-auto">
         {/* Heading */}
-        <div>
-          <h2 className="text-3xl font-bold">
-            <span className="text-blue-900">What Our </span>
-            <span className="text-yellow-400">Clients Say</span>
-          </h2>
-         
-        </div>
+        <h2 className="text-2xl md:text-3xl font-bold text-left mb-8">
+          <span className="text-blue-900">What Our </span>
+          <span className="text-yellow-400">Clients Say</span>
+        </h2>
 
-        {/* Slider */}
-        <div className="w-[55%] relative">
-          <div className="bg-white rounded-md shadow-lg p-8 flex items-center justify-between w-full min-h-[200px]">
-            {/* Left content */}
-            <div className="max-w-[60%]">
-              <p className="text-blue-900 leading-relaxed mb-6 text-sm">
-                {testimonials[currentIndex].text}
-              </p>
-              <div>
-                <div className="w-10 h-[2px] bg-yellow-400 mb-1"></div>
-                <h4 className="text-blue-900 font-bold">
-                  {testimonials[currentIndex].name}
-                </h4>
-                <p className="text-gray-800 text-xs">
-                  {testimonials[currentIndex].role}
+        {/* Responsive Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          {/* Left Box */}
+          <div className="lg:col-span-4 bg-white shadow-md rounded-md p-6 flex flex-col justify-between">
+            <h3 className="text-lg md:text-xl font-bold text-blue-900 mb-4">
+              Why Choose Us?
+            </h3>
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed flex-1">
+              We provide accurate, verified, and reliable marketing data that
+              empowers organizations to reach the right decision makers. Our
+              clients trust us to fuel their campaigns with results that matter.
+            </p>
+          </div>
+
+          {/* Right Slider */}
+          <div className="lg:col-span-8 relative flex flex-col">
+            <div className="bg-white rounded-md shadow-lg p-6 md:p-8 flex flex-col md:flex-row items-center justify-between w-full min-h-[240px] flex-1">
+              {/* Left content */}
+              <div className="md:max-w-[60%] w-full mb-6 md:mb-0">
+                <p className="text-blue-900 leading-relaxed mb-6 text-sm md:text-base">
+                  {testimonials[currentIndex].text}
                 </p>
+                <div>
+                  <div className="w-10 h-[2px] bg-yellow-400 mb-1"></div>
+                  <h4 className="text-blue-900 font-bold">
+                    {testimonials[currentIndex].name}
+                  </h4>
+                  <p className="text-gray-800 text-xs md:text-sm">
+                    {testimonials[currentIndex].role}
+                  </p>
+                </div>
+              </div>
+
+              {/* Right logo */}
+              <div className="md:max-w-[30%] flex justify-center w-full">
+                <img
+                  src={testimonials[currentIndex].logo}
+                  alt="logo"
+                  className="max-h-12 md:max-h-16 object-contain"
+                />
               </div>
             </div>
 
-            {/* Right logo */}
-            <div className="max-w-[30%] flex justify-center">
-              <img
-                src={testimonials[currentIndex].logo}
-                alt="logo"
-                className="max-h-16 object-contain"
-              />
+            {/* Dots Centered Below */}
+            <div className="flex gap-2 mt-4 justify-center">
+              {testimonials.map((_, idx) => (
+                <button
+                  key={idx}
+                  className={`w-2.5 h-2.5 rounded-full transition-all ${
+                    currentIndex === idx ? "bg-blue-900" : "bg-gray-300"
+                  }`}
+                  onClick={() => setCurrentIndex(idx)}
+                ></button>
+              ))}
             </div>
-          </div>
-
-          {/* Dots - bottom right */}
-          <div className="flex gap-1 mt-2 justify-end">
-            {testimonials.map((_, idx) => (
-              <button
-                key={idx}
-                className={`w-2 h-2 rounded-full ${
-                  currentIndex === idx ? "bg-blue-900" : "bg-gray-300"
-                }`}
-                onClick={() => setCurrentIndex(idx)}
-              ></button>
-            ))}
           </div>
         </div>
       </div>
