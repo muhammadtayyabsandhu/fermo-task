@@ -68,15 +68,7 @@ export default function TestimonialSlider() {
         {/* Responsive Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           {/* Left Box */}
-          <div className="lg:col-span-4 bg-white shadow-md rounded-md p-6 flex flex-col justify-between">
-            <h3 className="text-lg md:text-xl font-bold text-blue-900 mb-4">
-              Why Choose Us?
-            </h3>
-            <p className="text-gray-600 text-sm md:text-base leading-relaxed flex-1">
-              We provide accurate, verified, and reliable marketing data that
-              empowers organizations to reach the right decision makers. Our
-              clients trust us to fuel their campaigns with results that matter.
-            </p>
+          <div className="lg:col-span-4 bg-gray-50   rounded-md p-6 flex flex-col justify-between">
           </div>
 
           {/* Right Slider */}
