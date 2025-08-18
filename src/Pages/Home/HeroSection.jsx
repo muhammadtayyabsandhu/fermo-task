@@ -1,8 +1,9 @@
 import React from "react";
 import { FiPhone } from "react-icons/fi";
 import { useEffect, useState } from "react";
+
 const HeroSection = () => {
-  const words = ["POWERFUL", "DYNAMIC", "SMART"]; // words loop karne ke liye
+  const words = ["DYNAMIC", "SMART"]; // words loop karne ke liye
   const [text, setText] = useState("");
   const [index, setIndex] = useState(0); // current word index
   const [subIndex, setSubIndex] = useState(0); // current character index
@@ -10,8 +11,6 @@ const HeroSection = () => {
 
   useEffect(() => {
     const currentWord = words[index];
-
-    // typing / deleting speed
     const speed = deleting ? 100 : 150;
 
     const timeout = setTimeout(() => {
@@ -20,7 +19,6 @@ const HeroSection = () => {
       } else if (deleting && subIndex > 0) {
         setSubIndex(subIndex - 1);
       } else if (!deleting && subIndex === currentWord.length) {
-        // pause after full word typed
         setTimeout(() => setDeleting(true), 1000);
       } else if (deleting && subIndex === 0) {
         setDeleting(false);
@@ -48,24 +46,24 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full grid grid-cols-1 md:grid-cols-5 items-center gap-6">
-        {/* Left Content (chhota column) */}
-        <div className="md:col-span-2 space-y-5 text-center md:text-left px-4 sm:px-6">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug">
-             <span className="text-yellow-400">{text}</span> MARKETING <br />
+      <div className="relative z-10 w-full grid grid-cols-1 md:grid-cols-5 items-center ">
+        {/* Left Content (text box always on top) */}
+        <div className="md:col-span-2 space-y-5 ml-10 text-center md:text-left sm:px-6 relative z-20">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl text-center font-bold leading-snug">
+            <span className="text-yellow-400">{text}</span> MARKETING <br />
             SOLUTIONS EVERY <span className="text-yellow-300">B2B</span>{" "}
             BUSINESS NEEDS
           </h1>
-          <p className="text-sm sm:text-base opacity-90 max-w-sm mx-auto md:mx-0">
+          <p className="text-sm sm:text-base text-center opacity-90 max-w-sm mx-auto md:mx-0">
             The Secret Source for Customer Acquisition & Retention
           </p>
-          <div className="flex items-center justify-center md:justify-start gap-4 flex-wrap">
+          <div className="flex items-center justify-center gap-4 md:justify-start  flex-wrap">
             <button className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold py-2.5 px-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 text-sm sm:text-base">
               GET A QUOTE TODAY!
             </button>
             <a
               href="tel:1-888-494-0588"
-              className="text-base sm:text-lg hover:text-yellow-300 transition-colors flex items-center gap-2 font-medium"
+              className="text-base sm:text-lg  hover:text-yellow-300 transition-colors  flex items-center  font-semibold text-white border border-yellow-400 px-4 py-2 rounded-lg"
             >
               <FiPhone className="text-xl sm:text-2xl" />
               1-888-494-0588
@@ -73,8 +71,8 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Right Side Image (bari column) */}
-        <div className="md:col-span-3 flex justify-center md:justify-end relative">
+        {/* Right Side Image */}
+        <div className="md:col-span-3 flex justify-center md:justify-end relative z-10">
           <img
             src="https://res.cloudinary.com/dyfgyhy2v/image/upload/v1755338581/hero_image_m7a3th.png"
             alt="Marketing"

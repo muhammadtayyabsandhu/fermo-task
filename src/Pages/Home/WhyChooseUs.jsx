@@ -83,45 +83,45 @@ export default function WhyChooseUs() {
         </div>
 
         {/* Right Slider */}
-        <div className="relative w-full h-[350px] flex items-center justify-center overflow-hidden">
-          <AnimatePresence initial={false} custom={direction}>
-            <motion.div
-              key={current}
-              custom={direction}
-              initial={{ x: direction > 0 ? 300 : -300, y: -50, opacity: 0 }}
-              animate={{ x: 0, y: 0, opacity: 1 }}
-              exit={{ x: direction > 0 ? -300 : 300, y: 50, opacity: 0 }}
-              transition={{ duration: 0.7, ease: "easeInOut" }}
-              className="absolute w-[80%] max-w-md"
-            >
-              <div className="bg-white rounded-2xl p-6 flex flex-col items-center text-center 
-                shadow-[0px_6px_25px_rgba(37,99,235,0.35)]"> 
-                
-                {/* Top Line */}
-                <div className="w-12 h-1 bg-blue-500 rounded-full mb-4"></div>
+          <div className="relative w-full h-[350px] flex items-center justify-center overflow-hidden px-4">
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0, y: 50 }}
+        animate={{ scale: 1, opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="w-[90%] max-w-md bg-white rounded-2xl p-6 flex flex-col items-center text-center shadow-[0_8px_30px_rgba(37,99,235,0.25)]"
+      >
+        {/* Top Line Accent */}
+        <div className="w-16 h-1.5 bg-gradient-to-r from-yellow-400 to-blue-500 rounded-full mb-5"></div>
 
-                {/* Image */}
-                <div className="w-28 h-28 overflow-hidden rounded-full border-4 border-blue-500 mb-4">
-                  <img
-                    src={slides[current].img}
-                    alt={slides[current].title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+        {/* Image / Avatar */}
+        <motion.div
+          initial={{ rotate: -10, opacity: 0 }}
+          animate={{ rotate: 0, opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+          className="w-28 h-28 overflow-hidden rounded-full border-4 border-blue-500 shadow-md mb-5"
+        >
+          <img
+            src="https://randomuser.me/api/portraits/women/68.jpg"
+            alt="profile"
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
 
-                {/* Title */}
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
-                  {slides[current].title}
-                </h3>
+        {/* Title */}
+        <h3 className="text-xl font-bold text-gray-900 mb-2">Sarah Johnson</h3>
 
-                {/* Desc */}
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {slides[current].desc}
-                </p>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+        {/* Subtitle */}
+        <p className="text-sm font-medium text-blue-500 mb-4">
+          Marketing Director, TechCorp
+        </p>
+
+        {/* Description */}
+        <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
+          “Working with Avention Media transformed our lead generation strategy.
+          Their targeted solutions boosted our ROI by over 40% within months.”
+        </p>
+      </motion.div>
+    </div>
       </div>
     </section>
   );

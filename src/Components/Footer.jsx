@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0d1b2a] text-gray-200 relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-[#0d1b2a] to-[#000814] text-gray-200 relative overflow-hidden">
       {/* Background Accent */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-yellow-500 opacity-10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-blue-500 opacity-10 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
@@ -18,14 +18,14 @@ export default function Footer() {
             1178 Broadway, 3rd Floor #4076 <br /> New York, NY 10001, USA
           </p>
           <p className="flex items-start gap-2 text-sm mb-3">
-            <Globe size={16} className="text-yellow-400 mt-1" />
+            <Globe size={16} className="text-blue-400 mt-1" />
             501 Silverside Road, Suite 105 #2448 <br /> Wilmington, DE 19809, USA
           </p>
           <p className="flex items-center gap-2 text-sm mb-2">
             <Phone size={16} className="text-yellow-400" /> +1 (888) 317-9410
           </p>
           <p className="flex items-center gap-2 text-sm mb-4">
-            <Mail size={16} className="text-yellow-400" /> sales@aventionmedia.com
+            <Mail size={16} className="text-blue-400" /> sales@aventionmedia.com
           </p>
         </div>
 
@@ -34,11 +34,11 @@ export default function Footer() {
           <h3 className="text-xl font-bold mb-4 text-yellow-400">Quick Links</h3>
           <ul className="space-y-2 text-sm">
             <li className="hover:text-yellow-400 transition">About Us</li>
-            <li className="hover:text-yellow-400 transition">Privacy Policy</li>
+            <li className="hover:text-blue-400 transition">Privacy Policy</li>
             <li className="hover:text-yellow-400 transition">Our Blog</li>
-            <li className="hover:text-yellow-400 transition">Careers</li>
+            <li className="hover:text-blue-400 transition">Careers</li>
             <li className="hover:text-yellow-400 transition">FAQ</li>
-            <li className="hover:text-yellow-400 transition">Sitemap</li>
+            <li className="hover:text-blue-400 transition">Sitemap</li>
           </ul>
         </div>
 
@@ -47,18 +47,20 @@ export default function Footer() {
           <h3 className="text-xl font-bold mb-4 text-yellow-400">Solutions</h3>
           <ul className="space-y-2 text-sm">
             <li className="hover:text-yellow-400 transition">Global Base</li>
-            <li className="hover:text-yellow-400 transition">Industry Base</li>
+            <li className="hover:text-blue-400 transition">Industry Base</li>
             <li className="hover:text-yellow-400 transition">Installed Base</li>
-            <li className="hover:text-yellow-400 transition">Role Base</li>
+            <li className="hover:text-blue-400 transition">Role Base</li>
             <li className="hover:text-yellow-400 transition">Healthcare Base</li>
-            <li className="hover:text-yellow-400 transition">Data Hygiene</li>
+            <li className="hover:text-blue-400 transition">Data Hygiene</li>
           </ul>
         </div>
 
         {/* Newsletter + Social */}
         <div>
           <h3 className="text-xl font-bold mb-4 text-yellow-400">Stay Connected</h3>
-          <p className="text-sm mb-4">Subscribe to our newsletter for insights & updates.</p>
+          <p className="text-sm mb-4 text-blue-200">
+            Subscribe to our newsletter for insights & updates.
+          </p>
           <div className="flex items-center bg-white rounded-full overflow-hidden">
             <input
               type="email"
@@ -72,10 +74,15 @@ export default function Footer() {
 
           {/* Social Icons */}
           <div className="flex gap-4 mt-6">
-            {[Facebook, Twitter, Linkedin, Youtube].map((Icon, i) => (
+            {[
+              { Icon: Facebook, color: "hover:bg-blue-500" },
+              { Icon: Twitter, color: "hover:bg-sky-400" },
+              { Icon: Linkedin, color: "hover:bg-blue-600" },
+              { Icon: Youtube, color: "hover:bg-red-500" },
+            ].map(({ Icon, color }, i) => (
               <div
                 key={i}
-                className="p-2 bg-white/10 rounded-full backdrop-blur-md border border-white/20 cursor-pointer hover:bg-yellow-400 hover:text-gray-900 transition"
+                className={`p-2 bg-white/10 rounded-full backdrop-blur-md border border-white/20 cursor-pointer transition text-gray-200 hover:text-white ${color}`}
               >
                 <Icon size={20} />
               </div>
