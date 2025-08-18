@@ -118,7 +118,7 @@ export default function WhyChooseUs() {
         {/* Description */}
         <p className="text-gray-600 text-sm leading-relaxed max-w-sm">
           “Working with Avention Media transformed our lead generation strategy.
-          Their targeted solutions boosted our ROI by over 40% within months.”
+          Their target solutions boosted our ROI by over 40% within months.”
         </p>
       </motion.div>
     </div>
